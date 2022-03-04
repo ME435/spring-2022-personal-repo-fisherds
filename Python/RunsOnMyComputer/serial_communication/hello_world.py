@@ -1,0 +1,24 @@
+import time
+from urllib import response
+import serial
+
+ser = serial.Serial("/dev/tty.usbmodem1131401", baudrate = 9600, 
+                    parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, 
+                    bytesize=serial.EIGHTBITS, timeout=1)
+print("Connected")
+ser.reset_input_buffer()
+time.sleep(1)
+
+counter = 0
+while True:
+    counter += 1
+    print(f"Sent     --> {b'Write counter: %d' % (counter)}")
+    ser.write(b'Write counter: %d\n'%(counter))
+    
+    time.sleep(0.1)
+    if (ser.in_waiting > 0):
+        response = ser.readline()
+        print("Received --> " + str(response))
+    
+
+    time.sleep(3)
