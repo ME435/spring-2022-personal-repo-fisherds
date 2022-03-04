@@ -1,6 +1,5 @@
 {
-    "configuration": "cpu=atmega328old",
-    "board": "arduino:avr:nano",
-    "port": "/dev/tty.usbserial-0001",
-    "sketch": "Arduino/ServoTest/ServoTest.ino"
+    "board": "arduino:avr:megaADK",
+    "port": "/dev/tty.usbmodem1131401",
+    "sketch": "Python/RunsOnMyComputer/serial_communication/led_on_off/led_on_off.ino"
 }
