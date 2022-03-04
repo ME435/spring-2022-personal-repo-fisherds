@@ -1,0 +1,6 @@
+{
+    "configuration": "cpu=atmega328old",
+    "board": "arduino:avr:nano",
+    "port": "/dev/tty.usbserial-0001",
+    "sketch": "Arduino/ServoTest/ServoTest.ino"
+}
