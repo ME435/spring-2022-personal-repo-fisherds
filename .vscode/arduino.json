@@ -1,5 +1,5 @@
 {
     "board": "arduino:avr:megaADK",
-    "port": "/dev/tty.usbmodem1131401",
-    "sketch": "Python/RunsOnMyComputer/serial_communication/led_on_off/led_on_off.ino"
+    "port": "/dev/tty.usbmodem1201",
+    "sketch": "Python/RunsOnMyComputer/serial_communication/simple_byte_based_com/simple_byte_based_com.ino"
 }

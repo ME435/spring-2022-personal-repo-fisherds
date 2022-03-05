@@ -1,5 +1,4 @@
 import time
-from urllib import response
 import serial
 
 ser = serial.Serial("/dev/tty.usbmodem1131401", baudrate = 9600, 
@@ -16,9 +15,9 @@ while True:
     ser.write(b'Write counter: %d\n'%(counter))
     
     time.sleep(0.1)
-    if (ser.in_waiting > 0):
-        response = ser.readline()
-        print("Received --> " + str(response))
+    while (ser.in_waiting > 0):
+        received = ser.readline()
+        print("Received --> " + str(received))
     
 
     time.sleep(3)
