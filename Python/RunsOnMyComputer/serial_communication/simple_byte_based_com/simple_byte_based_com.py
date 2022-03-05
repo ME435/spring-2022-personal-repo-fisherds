@@ -90,7 +90,7 @@ def main():
             print("Goodbye")
             break
         else:
-            print("Please answer LED or TONE next time.")
+            print("Please answer with a valid choice next time.")
         print_replies(ser)
 
 
