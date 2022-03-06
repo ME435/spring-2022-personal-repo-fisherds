@@ -36,6 +36,12 @@ def handle_string_command(ser):
 
 def handle_number_command(ser):
     answer = input("What 32 bit number would you like to send? ")
+    # Hints on fun numbers to send:
+    # 126 - the start byte which needs escaping
+    # 125 - the escape byte which needs escaping
+    # 116 - causes crc to be the start byte which needs escaping
+    # 117 - causes crc to be the escape byte which needs escaping
+    # 32 - the XOR byte which should NOT be escaped
     answer = int(answer)
     ser.write(START_BYTE.to_bytes(1, 'big'))
     ser.write((6).to_bytes(1, 'big'))  # Length is 6
