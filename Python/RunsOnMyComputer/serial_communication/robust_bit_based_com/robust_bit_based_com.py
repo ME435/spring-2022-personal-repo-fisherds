@@ -9,13 +9,30 @@ COMMAND_ID_NUMBER = 0x01
 COMMAND_ID_STRING = 0x02
 
 def handle_string_command(ser):
-    # answer = input("What string would you like to send? ")
+    answer = input("What string would you like to send? ")
     ser.write(START_BYTE.to_bytes(1, 'big'))
-    ser.write((10).to_bytes(1, 'big'))  # Length is 10
+    ser.write((len(answer) + 2).to_bytes(1, 'big'))  # Length is string length plus 2
     ser.write((33).to_bytes(1, 'big')) # Team 33
     ser.write(COMMAND_ID_STRING.to_bytes(1, 'big')); # 2
-    ser.write("P0P0P0P0".encode())         # 0x30 0x50 (repeated 4 times)
-    ser.write((256 - 33 - 2).to_bytes(1, 'big'))  # CRC is 256 - TeamNumber - Command
+    crc = - 33 - 2
+
+    for one_byte in answer.encode():
+        crc -= one_byte
+        if one_byte == START_BYTE or one_byte == ESCAPE_BYTE:
+            ser.write(ESCAPE_BYTE.to_bytes(1, 'big'))
+            one_byte = one_byte ^ ESCAPE_XOR
+        ser.write(one_byte.to_bytes(1, 'big'))
+    crc = crc % 256
+    ser.write(crc.to_bytes(1, 'big'))
+
+
+    # Normal
+    # ser.write(START_BYTE.to_bytes(1, 'big'))
+    # ser.write((10).to_bytes(1, 'big'))  # Length is 10
+    # ser.write((33).to_bytes(1, 'big')) # Team 33
+    # ser.write(COMMAND_ID_STRING.to_bytes(1, 'big')); # 2
+    # ser.write("P0P0P0P0".encode())         # 0x30 0x50 (repeated 4 times)
+    # ser.write((256 - 33 - 2).to_bytes(1, 'big'))  # CRC is 256 - TeamNumber - Command
 
 def handle_number_command(ser):
     answer = input("What 32 bit number would you like to send? ")
@@ -25,7 +42,7 @@ def handle_number_command(ser):
     ser.write((44).to_bytes(1, 'big')) # Team 44
     ser.write(COMMAND_ID_NUMBER.to_bytes(1, 'big')); # 1
     crc = - 44 - 1
-    for one_byte in (answer).to_bytes(4, 'big'):
+    for one_byte in answer.to_bytes(4, 'big'):
         crc -= one_byte
         if one_byte == START_BYTE or one_byte == ESCAPE_BYTE:
             ser.write(ESCAPE_BYTE.to_bytes(1, 'big'))

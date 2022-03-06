@@ -6,7 +6,7 @@
 #define COMMAND_ID_NUMBER 0x01
 #define COMMAND_ID_STRING 0x02
 
-byte inputBuffer[40];
+byte inputBuffer[200];
 uint8_t nextAvailableInputBufferIndex = 0;
 int8_t bytesRemainingInMessage = -1;  // Unknown
 
