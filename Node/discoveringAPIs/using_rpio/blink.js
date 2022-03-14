@@ -1,25 +1,20 @@
-// Imports
-function msleep(n) {
-    Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, n);
-}
-function sleep(n) {
-    msleep(n * 1000);
-}
+var rpio = require('rpio');
+
 function main() {
     console.log("Ready");
 
-    // TODO: Setup GPIO 14 as an output.
+    // Done: Setup GPIO 14 as an output.
+    let gpio14 = 8
+    rpio.open(gpio14, rpio.OUTPUT, rpio.LOW);
 
     while (true) {
-        // TODO: Turn GPIO 14 on
+        rpio.write(gpio14, rpio.HIGH);
         console.log("LED On");
-        sleep(1);
-
-
-        // TODO: Turn GPIO 14 off
+        rpio.sleep(1);
+    
+        rpio.write(gpio14, rpio.LOW);
         console.log("LED Off");
-        sleep(1);
-
+        rpio.sleep(1);
     }
 }
 
