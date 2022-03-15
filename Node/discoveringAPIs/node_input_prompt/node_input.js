@@ -1,8 +1,15 @@
+var prompt = require('prompt-sync')();
+
 function main() {
     console.log("Ready");
 
     while (true) {
-        let name = input("What is your name? ")
+        let name = prompt("What is your name? ");
+        if (!name) {
+            console.log("Goodbye");
+            break;
+        }
+        console.log(`Hello, ${name}`);
     }
 }
 
