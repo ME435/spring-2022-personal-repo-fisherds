@@ -1,4 +1,6 @@
 // Imports
+const Gpio = require('onoff').Gpio;
+
 
 function msleep(n) {
     Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, n);
@@ -9,17 +11,16 @@ function msleep(n) {
  }
  
 function main() {
-    console.log("Ready");
-
-    // TODO: Setup GPIO 14 (physical pin 8) as an output.
+    console.log("Using on off");
+    const led = new Gpio(14, 'out');
 
     while (true) {
         console.log("LED On");
-        // TODO: Actually turn on the led
+        led.write(1);
         sleep(1);
 
         console.log("LED Off");
-        // TODO: Actually turn off the led
+        led.write(0);
         sleep(1);
     }
 }
