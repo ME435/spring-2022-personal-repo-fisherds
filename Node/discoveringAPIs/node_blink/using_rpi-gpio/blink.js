@@ -1,5 +1,6 @@
 // Imports
-const Gpio = require('pigpio').Gpio;
+var gpio = require('rpi-gpio');
+
 
 function msleep(n) {
     Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, n);
@@ -12,15 +13,18 @@ function msleep(n) {
 function main() {
     console.log("Ready");
 
-    const led = new Gpio(14, {mode: Gpio.OUTPUT});
+    // TODO: Setup GPIO 14 (physical pin 8) as an output.
+    gpio.setup(8, gpio.DIR_OUT);
 
     while (true) {
         console.log("LED On");
-        led.digitalWrite(1);
+        // TODO: Actually turn on the led
+        gpio.write(8, 1);
         sleep(1);
 
         console.log("LED Off");
-        led.digitalWrite(0);
+        // TODO: Actually turn off the led
+        gpio.write(8, 0);
         sleep(1);
     }
 }
