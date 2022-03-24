@@ -1,6 +1,8 @@
 import time
 import serial
 
+# From: http://pythonhosted.org/pyserial/
+
 # ser = serial.Serial("/dev/ttyS0", baudrate=9600)
 # ser = serial.Serial("/dev/ttyAMA0", baudrate=9600)
 

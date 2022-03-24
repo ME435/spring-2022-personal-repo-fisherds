@@ -1,5 +1,4 @@
 import time
-from urllib import response
 import serial
 
 def toggle(ser):
@@ -15,10 +14,9 @@ def toggle(ser):
         
         time.sleep(0.1)
         if (ser.in_waiting > 0):
-            response = ser.readline()
-            print("Received --> " + str(response))
+            Received = ser.readline()
+            print("Received --> " + str(Received))
         
-
         time.sleep(2)
 
 def ask_user(ser):
