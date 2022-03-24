@@ -6,7 +6,9 @@ import serial
 #                     bytesize=serial.EIGHTBITS, timeout=1)
 
 
-ser = serial.Serial("/dev/ttyS0", baudrate = 9600)
+# ser = serial.Serial("/dev/ttyS0", baudrate = 9600)
+ser = serial.Serial("/dev/tty.usbmodem2101", baudrate = 9600)
+
 
 print("Connected")
 ser.reset_input_buffer()
