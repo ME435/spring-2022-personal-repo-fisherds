@@ -1,26 +1,28 @@
-/** namespace. */
 var rhit = rhit || {};
 
-/** globals */
-rhit.variableName = "";
-
-/** function and class syntax examples */
-rhit.functionName = function () {
-};
-
-rhit.ClassName = class {
+rhit.ViewController = class {
 	constructor() {
-
+		console.log("Add button listeners");
+		document.querySelector("#ledOnButton").onclick = (event) => {
+			this.handleLedOn();
+		}
+		document.querySelector("#ledOffButton").onclick = (event) => {
+			this.handleLedOff();
+		}
 	}
 
-	methodName() {
+	handleLedOn() {
+		console.log("You clicked the On button");
+	}
 
+	handleLedOff() {
+		console.log("You clicked the Off button");
 	}
 }
 
-/* Main */
 rhit.main = function () {
 	console.log("Ready");
+	new rhit.ViewController();
 };
 
 rhit.main();
