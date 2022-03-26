@@ -86,4 +86,10 @@ app.get("/api/ledoff/:color", (req, res) => {
     });
 });
 
+app.get("/api/read", (req, res) => {
+    res.json({
+        isHigh: pushbutton.digitalRead()
+    });
+});
+
 app.listen(3000);

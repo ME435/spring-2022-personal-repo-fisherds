@@ -21,6 +21,9 @@ rhit.ViewController = class {
 		document.querySelector("#greenLedOffButton").onclick = (event) => {
 			this.handleLedOff("g");
 		}
+		document.querySelector("#readButton").onclick = (event) => {
+			this.handleRead();
+		}
 	}
 
 	async handleLedOn(color) {
@@ -35,6 +38,13 @@ rhit.ViewController = class {
 		const response = await fetch("/api/ledoff/" + color);
 		const data = await response.json();
 		console.log("Response", data);
+	}
+
+	async handleRead() {
+		const response = await fetch("/api/read");
+		const data = await response.json();
+		console.log("Response", data);
+		document.querySelector("#buttonStatus").innerHTML = `The pushbutton is ${data["isHigh"] ? "HIGH" : "LOW"}`;
 	}
 }
 
