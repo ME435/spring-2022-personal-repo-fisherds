@@ -10,18 +10,29 @@ void setup() {
 void loop() {
   if (stringComplete) {
 
-    // TODO: Do something real with the message!
-    if (inputString.equalsIgnoreCase("ON")) {
+    // Simulated PlateLoader!
+    if (inputString.equals("RESET")) {
+      delay(4);  // simulated PlateLoader delay
+      Serial.println("READY, SAGIAN PE LOADER, ROM VER. 1.1.6, 12APR2001");
+    } else if (inputString.equals("Z-AXIS EXTEND") || inputString.equals("GRIPPER OPEN")) {
       digitalWrite(LED_BUILTIN, HIGH);
-      Serial.println("The LED is now on!");
-    } else if (inputString.equalsIgnoreCase("OFF")) {
+      delay(1);  // simulated PlateLoader delay
+      Serial.print("LED on --> ");
+      Serial.println(inputString);
+    } else if (inputString.equals("Z-AXIS RETRACT") || inputString.equals("GRIPPER CLOSE")) {
       digitalWrite(LED_BUILTIN, LOW);
-      Serial.println("The LED is now off!");
+      delay(1);  // simulated PlateLoader delay
+      Serial.print("LED off --> ");
+      Serial.println(inputString);
+    } else if (inputString.startsWith("MOVE ")) {
+      delay(7);  // simulated PlateLoader delay
+      Serial.print("(long delay) --> ");
+      Serial.println(inputString);
     } else {
       Serial.print("From Arduino --> ");
+      delay(0.5);  // simulated PlateLoader delay
       Serial.println(inputString);
     }
-
     // clear the string:
     inputString = "";
     stringComplete = false;
