@@ -1,16 +1,16 @@
 import serial
 import time
-# /dev/ttyS0
 
 def main():
     print("Ready")
     # ser = serial.Serial('/dev/ttyS0', baudrate=9600)
-    ser = serial.Serial('/dev/ttyACM0', baudrate=9600)
-    # ser = serial.Serial('/dev/tty.usbmodem2101', baudrate=9600)
+    ser = serial.Serial('/dev/ttyACM0', baudrate=19200)
     ser.reset_input_buffer()
     print("Connected")
     time.sleep(1.0)
+    
     counter = 0 
+
     while True:
         counter += 1
         ser.write(b'count = %d\n' % counter)
