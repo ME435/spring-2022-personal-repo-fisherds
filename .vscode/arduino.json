@@ -1,6 +1,6 @@
 {
     "configuration": "cpu=atmega2560",
     "board": "arduino:avr:mega",
-    "port": "/dev/tty.usbmodem2101",
+    "port": "/dev/ttyAMA0",
     "sketch": "Arduino/sketches/simple_com/simple_com.ino"
 }

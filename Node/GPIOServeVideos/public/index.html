@@ -16,33 +16,33 @@
   </nav>
   <div id="mainPage" class="container page-container">
     <div class="row justify-content-center">
-      <div class="col-4">
-        <button id="redLedOnButton" type="button" class="btn btn-outline-primary btn-block">Red LED On</button>
+      <div class="col-6">
+        <button id="redLedOnButton" type="button" class="btn btn-outline-primary btn-block">Red On</button>
       </div>
-      <div class="col-4">
-        <button id="redLedOffButton" type="button" class="btn btn-outline-primary btn-block">Red LED Off</button>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-4">
-        <button id="yellowLedOnButton" type="button" class="btn btn-outline-primary btn-block">Yellow LED On</button>
-      </div>
-      <div class="col-4">
-        <button id="yellowLedOffButton" type="button" class="btn btn-outline-primary btn-block">Yellow LED Off</button>
+      <div class="col-6">
+        <button id="redLedOffButton" type="button" class="btn btn-outline-primary btn-block">Red Off</button>
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-4">
-        <button id="greenLedOnButton" type="button" class="btn btn-outline-primary btn-block">Green LED On</button>
+      <div class="col-6">
+        <button id="yellowLedOnButton" type="button" class="btn btn-outline-primary btn-block">Yellow On</button>
       </div>
-      <div class="col-4">
-        <button id="greenLedOffButton" type="button" class="btn btn-outline-primary btn-block">Green LED Off</button>
+      <div class="col-6">
+        <button id="yellowLedOffButton" type="button" class="btn btn-outline-primary btn-block">Yellow Off</button>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <button id="greenLedOnButton" type="button" class="btn btn-outline-primary btn-block">Green On</button>
+      </div>
+      <div class="col-6">
+        <button id="greenLedOffButton" type="button" class="btn btn-outline-primary btn-block">Green Off</button>
       </div>
     </div>
 
     <div class="row justify-content-center">
       <div class="col-6">
-        <button id="readButton" type="button" class="btn btn-outline-primary btn-block">Read the
+        <button id="readButton" type="button" class="btn btn-outline-primary btn-block">Read
           Pushbutton</button>
       </div>
     </div>
@@ -52,6 +52,16 @@
         
       </div>
     </div>
+
+    <hr>
+    <h1>Servo slider</h1>
+    <div class="row">
+      <div class="col">
+        <input type="range" min="500" max="2500" value="1500" class="w-100" id="servoSlider">
+      </div>
+    </div>
+
+    
   </div>
   <script src="scripts/jquery.min.js"></script>
   <script src="scripts/popper.js"></script>

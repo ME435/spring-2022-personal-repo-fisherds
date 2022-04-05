@@ -19,6 +19,9 @@ const pushbutton = new Gpio(25, {
     pullUpDown: Gpio.PUD_UP,
     edge: Gpio.FALLING_EDGE
 });
+const servo = new Gpio(17, {
+    mode: Gpio.OUTPUT
+});
 
 
 app.get("/hello", (req, res) => {
@@ -89,6 +92,37 @@ app.get("/api/ledoff/:color", (req, res) => {
 app.get("/api/read", (req, res) => {
     res.json({
         isHigh: pushbutton.digitalRead()
+    });
+});
+
+app.get("/api/servo/:pulseWidth", (req, res) => {
+    const pulseWidth = req.params.pulseWidth;
+
+    servo.servoWrite(pulseWidth);
+    console.log("Turn the servo to pulseWidth " + pulseWidth);
+    res.json({
+        pulseWidth: pulseWidth
+    });
+});
+
+app.get("/api/motor/:dutyCycle", function (req, res) {
+    const dutyCycle = parseInt(req.params.dutyCycle);
+    console.log("Servo for dutyCycle: " + dutyCycle);
+    if (dutyCycle < 0) {
+        motorA.digitalWrite(1);
+        motorB.digitalWrite(0);
+        motorEnable.pwmWrite(-dutyCycle);
+    } else if (dutyCycle > 0) {
+        motorA.digitalWrite(0);
+        motorB.digitalWrite(1);
+        motorEnable.pwmWrite(dutyCycle);
+    } else {
+        motorA.digitalWrite(0);
+        motorB.digitalWrite(0);
+        motorEnable.pwmWrite(0);
+    }
+    res.json({
+        dutyCycle: dutyCycle
     });
 });
 
