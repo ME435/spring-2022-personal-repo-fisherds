@@ -3,7 +3,7 @@ MDBoxLayout:
 
     MDToolbar:
         title: "Hello Button"
-    
+
     MDBoxLayout:
         orientation: 'horizontal'
         adaptive_width: True
@@ -12,19 +12,20 @@ MDBoxLayout:
 
         MDRectangleFlatButton:
             text: "Decrement"
-            on_press: app.change(-1)
+            on_press: app.counter -= 1
 
         MDRectangleFlatButton:
             text: "Reset"
-            on_press: app.set(0)
+            on_press: app.counter = 0
 
         MDRectangleFlatButton:
             text: "Increment"
-            on_press: app.change(1)
+            on_press: app.counter += 1
 
     MDLabel:
-        text: app.my_text
+        text: f"Counter = {app.counter}"
         halign: "center"
+    
     
     Widget
     
