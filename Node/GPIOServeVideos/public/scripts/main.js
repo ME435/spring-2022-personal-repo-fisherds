@@ -24,6 +24,9 @@ rhit.ViewController = class {
 		document.querySelector("#readButton").onclick = (event) => {
 			this.handleRead();
 		}
+		document.querySelector("#servoSlider").oninput = (event) => {
+			this.handleServo(event.target.value);
+		}
 	}
 
 	async handleLedOn(color) {
@@ -46,6 +49,13 @@ rhit.ViewController = class {
 		console.log("Response", data);
 		document.querySelector("#buttonStatus").innerHTML = `The pushbutton is ${data["isHigh"] ? "HIGH" : "LOW"}`;
 	}
+	async handleServo(angle) {
+		console.log("Servo slider = ", angle);
+		const response = await fetch("/api/servo/" + angle);
+		const data = await response.json();
+		console.log("Response", data);
+	}
+
 }
 
 rhit.main = function () {
