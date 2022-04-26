@@ -1,0 +1,21 @@
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+BitCom	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+handleRxByte	KEYWORD2
+registerLedCallback	KEYWORD2
+registerToneCallback	KEYWORD2
+printDouble	KEYWORD2  
+flashAndBeep KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+

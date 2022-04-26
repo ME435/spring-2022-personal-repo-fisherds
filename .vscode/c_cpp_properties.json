@@ -18,7 +18,7 @@
             "includePath": [
                 "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino",
                 "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/variants/mega",
-                "/Users/davidfisher/Documents/Rose/ME435/github/spring-2022-personal-repo-fisherds/Arduino/libraries/MyLibrary",
+                "/Users/davidfisher/Documents/Rose/ME435/github/spring-2022-personal-repo-fisherds/Arduino/libraries/BitCom",
                 "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/7.3.0/include",
                 "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/7.3.0/include-fixed",
                 "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include"
