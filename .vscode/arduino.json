@@ -1,6 +1,6 @@
 {
     "configuration": "cpu=atmega2560",
     "board": "arduino:avr:mega",
-    "port": "/dev/tty.usbmodem21301",
+    "port": "/dev/tty.usbmodem2101",
     "sketch": "InClass/BitCom/bit_com_library/bit_com_library.ino"
 }
