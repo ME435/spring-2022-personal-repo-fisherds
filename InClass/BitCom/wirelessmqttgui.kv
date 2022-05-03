@@ -1,0 +1,67 @@
+MDBoxLayout:
+    orientation: 'vertical'
+
+    MDToolbar:
+        title: "Direct Serial GUI"
+
+    MDBoxLayout:
+        orientation: 'horizontal'
+        adaptive_width: True
+        pos_hint: {'center_x': 0.5}
+        spacing: 20
+
+        MDRectangleFlatButton:
+            text: "Led ON"
+            on_press: print("TODO: Send an LED command")
+
+        MDRectangleFlatButton:
+            text: "Led OFF"
+            on_press: print("TODO: Send an LED command")
+
+    MDSlider:
+        min: 120
+        max: 1500
+        value: 440
+        on_touch_move: app.frequency = int(self.value)
+
+    MDBoxLayout:
+        orientation: 'horizontal'
+        adaptive_width: True
+        pos_hint: {'center_x': 0.5}
+        spacing: 20
+
+        MDRectangleFlatButton:
+            text: "Send Tone"
+            on_press: print("TODO: Send an Tone at the slider frequency")
+
+        MDRectangleFlatButton:
+            text: "Mary"
+            on_press: print("TODO: Send command to play Mary")
+
+    MDBoxLayout:
+        orientation: 'horizontal'
+        adaptive_width: True
+        pos_hint: {'center_x': 0.5}
+        spacing: 2
+
+        MDRectangleFlatButton:
+            text: "C"
+            on_press: print("TODO: Send a tone 262")
+
+        MDRectangleFlatButton:
+            text: "D"
+            on_press: print("TODO: Send a tone 294")
+
+        MDRectangleFlatButton:
+            text: "E"
+            on_press: print("TODO: Send a tone 330")
+
+        MDRectangleFlatButton:
+            text: "F"
+            on_press: print("TODO: Send a tone 349")
+
+        MDRectangleFlatButton:
+            text: "G"
+            on_press: print("TODO: Send a tone 392")
+
+    Widget
