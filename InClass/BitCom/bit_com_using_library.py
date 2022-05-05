@@ -20,7 +20,8 @@ def handleToneCommand(robot):
     
 def main():
     print("Ready")
-    robot = bc.BitCom("/dev/tty.usbmodem2101")
+    # robot = bc.BitCom("/dev/tty.usbmodem2101")  # Computer
+    robot = bc.BitCom("/dev/ttyACM0")  # Pi
     
     while True:
         answer = input("Command? [LED TONE SONG] ")
