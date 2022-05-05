@@ -12,17 +12,17 @@ MDBoxLayout:
 
         MDRectangleFlatButton:
             text: "Led ON"
-            on_press: print("TODO: Send an LED command")
+            on_press: app.mqtt_client.send_message("led", 1)
 
         MDRectangleFlatButton:
             text: "Led OFF"
-            on_press: print("TODO: Send an LED command")
+            on_press: app.mqtt_client.send_message("led", 0)
 
     MDSlider:
         min: 120
         max: 1500
         value: 440
-        on_touch_move: app.frequency = int(self.value)
+        on_touch_up: app.frequency = int(self.value)
 
     MDBoxLayout:
         orientation: 'horizontal'
@@ -32,11 +32,11 @@ MDBoxLayout:
 
         MDRectangleFlatButton:
             text: "Send Tone"
-            on_press: print("TODO: Send an Tone at the slider frequency")
+            on_press: app.mqtt_client.send_message("tone", app.frequency)
 
         MDRectangleFlatButton:
             text: "Mary"
-            on_press: print("TODO: Send command to play Mary")
+            on_press: app.mqtt_client.send_message("song", "mary")
 
     MDBoxLayout:
         orientation: 'horizontal'
@@ -46,22 +46,22 @@ MDBoxLayout:
 
         MDRectangleFlatButton:
             text: "C"
-            on_press: print("TODO: Send a tone 262")
+            on_press: app.mqtt_client.send_message("tone", 262)
 
         MDRectangleFlatButton:
             text: "D"
-            on_press: print("TODO: Send a tone 294")
+            on_press: app.mqtt_client.send_message("tone", 294)
 
         MDRectangleFlatButton:
             text: "E"
-            on_press: print("TODO: Send a tone 330")
+            on_press: app.mqtt_client.send_message("tone", 330)
 
         MDRectangleFlatButton:
             text: "F"
-            on_press: print("TODO: Send a tone 349")
+            on_press: app.mqtt_client.send_message("tone", 349)
 
         MDRectangleFlatButton:
             text: "G"
-            on_press: print("TODO: Send a tone 392")
+            on_press: app.mqtt_client.send_message("tone", 392)
 
     Widget
